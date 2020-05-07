@@ -37,7 +37,7 @@ public class InventoryTxnServiceImpl implements InventoryTxnService {
 		if (prod == null || !dao.viewProducts().contains(prod)) throw new InvalidProdIdException(InventoryConstants.INVALID_PRODUCT);
 		
 				
-		if((txn.getProd().getStock()>prod.getStock()) && form.getVendortype().equals(InventoryConstants.CONSUMER))		
+		if((txn.getQty()>prod.getStock()) && form.getVendortype().equals(InventoryConstants.CONSUMER))		
 			throw new OutOfStockException(InventoryConstants.OUT_OF_STOCK);
 		
 					

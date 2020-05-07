@@ -31,7 +31,7 @@ public class VendorTypeExceptionAdvice {
 	}
 	
 	@ExceptionHandler(value = {OutOfStockException.class, InventoryTxnException.class, LoginException.class})
-	@ResponseStatus(code= HttpStatus.BAD_REQUEST)
+	@ResponseStatus(code= HttpStatus.BAD_REQUEST, reason="out of stock")
 	public ErrorInfo  handleExceptio3(Exception ex) {
 		logger.error(ex.getMessage());
 		ErrorInfo error = new ErrorInfo();
